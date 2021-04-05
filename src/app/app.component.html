@@ -1,0 +1,19 @@
+<h2>Pesonajes</h2>
+
+<h1>{{paginaActual}}-{{numPaginas}}</h1>
+
+<div class="botones">
+  <!-- boolean para distinguir que boton acciono: siguiente o anterior -->
+  <button (click)="onClick(false)" [disabled]="paginaActual === 1">Anterior</button>
+  <button (click)="onClick(true)" [disabled]="paginaActual === numPaginas">Siguiente</button>
+</div>
+
+<div class="personajes">
+  <div class="personaje" *ngFor="let personaje of arrPersonajes"
+    [ngClass]="{alive: (personaje.status === 'Alive'), dead: (personaje.status === 'Dead')}">
+    <h5>{{personaje.name}}</h5>
+    <img [src]="personaje.image">
+    <p>{{personaje.species}}</p>
+    <p>{{personaje.location.name}}</p>
+  </div>
+</div>
